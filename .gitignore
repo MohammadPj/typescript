@@ -1,0 +1,11 @@
+# modules
+./1-featurs/node_modules
+./2-maps/node_modules
+
+# PARCEL
+./2-maps/.parcel-cache
+
+# worke space
+./.idea
+/2-maps/node_modules/
+/1-featurs/node_modules/
