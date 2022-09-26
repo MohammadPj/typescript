@@ -8,19 +8,18 @@ import {LinkedList} from "./LinkedList";
 // sorter.sort()
 // console.log(numbersCollections.data)
 
-// const characterCollection = new CharactersCollection("Salam")
-// const sorter = new Sorter(characterCollection)
+const characterCollection = new CharactersCollection("Salam")
+characterCollection.sort()
+console.log("characterCollection", characterCollection)
+
+// const linkedList = new LinkedList();
+//
+// linkedList.add(500);
+// linkedList.add(-10);
+// linkedList.add(-23);
+// linkedList.add(0);
+// linkedList.add(250);
+//
+// const sorter = new Sorter(linkedList)
 // sorter.sort()
-// console.log("characterCollection", characterCollection)
-
-const linkedList = new LinkedList();
-
-linkedList.add(500);
-linkedList.add(-10);
-linkedList.add(-23);
-linkedList.add(0);
-linkedList.add(250);
-
-const sorter = new Sorter(linkedList)
-sorter.sort()
-linkedList.print()
+// linkedList.print()
