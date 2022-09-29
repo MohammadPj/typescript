@@ -1,14 +1,9 @@
-type Employee = {
-  readonly id: number;
-  name: string;
-  isVIP?: boolean;
-  retire: (date: Date) => void;
+function kgToLbs(weight: number | string): number {
+  //  Narrowing
+  if(typeof weight === "number")
+    return weight * 1.2
+  return +weight * 1.2
 }
 
-let employee: Employee = {
-  id: 1,
-  name: "Mohammad",
-  retire: (date: Date) => {
-    console.log("date", date);
-  },
-};
+kgToLbs(100)
+kgToLbs("10kg")
