@@ -1,7 +1,5 @@
-let speed: number | null = null
+let phone = document.getElementById('phone') as HTMLInputElement
+let phone2 = <HTMLInputElement> document.getElementById('phone')
 
-let ride = {
-  //  Falsy (Undefined, null, '', 0)
-  //  Nullish coalescing operator - اگه 0 یا '' باشه مقدار 0 یا '' رو میذاره
-  speed: speed ?? 30
-}
+console.log("value", phone.value)
+console.log("value", phone2.value)
