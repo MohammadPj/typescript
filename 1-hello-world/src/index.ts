@@ -1,14 +1,4 @@
-type Draggable = {
-  drag: () => void
-}
-type Resizeable = {
-  resize: () => void
-}
+type Quantity = 50 | 100
+let quantity: Quantity = 50
 
-//  Intersection
-type UIWidget = Draggable & Resizeable
-
-let texBox: UIWidget = {
-  drag() {},
-  resize: () => {}
-}
+type Metric = "cm" | "m" | "inch"
