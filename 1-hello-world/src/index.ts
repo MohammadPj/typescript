@@ -1,7 +1,7 @@
-// const small = 1
-// const medium = 2
-// const large = 3
+function calculateTax(income: number, taxYear: number = 2022): number {
+  if (taxYear < 2022)
+    return income * 1.2
+  return income *1.3
+}
 
-enum Size {Small = 2, Medium, Large}
-let mySize: Size = Size.Medium
-console.log("mySize", mySize)
+calculateTax(10_000)
