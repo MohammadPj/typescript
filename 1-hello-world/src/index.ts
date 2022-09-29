@@ -1,2 +1,2 @@
-//  The Array Types
-let numbers: number[] = [1,2,3]
+//  The Tuple Type
+let users: [number, string] = [1, "mohammad"]
