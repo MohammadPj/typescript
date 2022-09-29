@@ -1,4 +1,6 @@
-type Quantity = 50 | 100
-let quantity: Quantity = 50
-
-type Metric = "cm" | "m" | "inch"
+function greet(name: string | null | undefined) {
+  if (name)
+    console.log("name", name)
+  else
+    console.log("Hola")
+}
