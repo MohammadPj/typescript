@@ -1,13 +1,17 @@
-// function processEvents(): never {
-//   while (true) {
-//     //  read a message from a queue
-//   }
-// }
+class Amount {
+  id: number;
+  owner: string;
+  balance: number
 
-function reject(message: string): never {
-  throw new Error(message)
+  constructor(id: number, owner: string, balance: number) {
+    this.balance = balance
+    this.id = id
+    this.owner = owner
+  }
+
+  diposite(amount: number): void {
+    if (amount < 0)
+      throw new Error('invalid amount')
+    this.balance += amount
+  }
 }
-
-reject("we have an Error")
-// processEvents()
-console.log("salam")

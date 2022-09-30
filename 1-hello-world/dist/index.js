@@ -1,9 +1,14 @@
 "use strict";
-function kgToLbs(weight) {
-    if (typeof weight === "number")
-        return weight * 1.2;
-    return +weight * 1.2;
+class Amount {
+    constructor(id, owner, balance) {
+        this.balance = balance;
+        this.id = id;
+        this.owner = owner;
+    }
+    diposite(amount) {
+        if (amount < 0)
+            throw new Error('invalid amount');
+        this.balance += amount;
+    }
 }
-kgToLbs(100);
-kgToLbs("10kg");
 //# sourceMappingURL=index.js.map
