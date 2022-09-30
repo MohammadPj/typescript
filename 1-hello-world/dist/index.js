@@ -1,5 +1,5 @@
 "use strict";
-class Amount {
+class Account {
     constructor(id, owner, balance) {
         this.balance = balance;
         this.id = id;
@@ -11,4 +11,7 @@ class Amount {
         this.balance += amount;
     }
 }
+let account = new Account(10, "mohammad", 0);
+account.diposite(100);
+console.log(account instanceof Account);
 //# sourceMappingURL=index.js.map

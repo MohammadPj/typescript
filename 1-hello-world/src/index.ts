@@ -1,4 +1,4 @@
-class Amount {
+class Account {
   id: number;
   owner: string;
   balance: number
@@ -15,3 +15,8 @@ class Amount {
     this.balance += amount
   }
 }
+
+let account = new Account(10, "mohammad", 0)
+
+account.diposite(100)
+console.log(account instanceof Account)
