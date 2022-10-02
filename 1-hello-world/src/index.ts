@@ -1,17 +1,28 @@
-class Button {
-  private static _count: number = 0
+class Person {
+  constructor(public firstName: string, public lastName: string) {
+  }
 
-  increment() {Button._count++}
+  get fullName() {
+    return  this.firstName + " " + this.lastName
+  }
 
-  static get count() {
-    return Button._count
+  walk() {
+    console.log("walking")
   }
 }
 
-let btn1 = new Button()
-let btn2 = new Button()
+class Student extends Person {
+  constructor(public studentId: number, firstName: string, lastName: string) {
+    super(firstName, lastName);
+  }
 
-btn1.increment()
-btn2.increment()
+  takeTest() {
+    console.log("Taking a Test")
+  }
+}
 
-console.log("count", Button.count)
+let student = new Student(1, "Mohammad", "Poorjamal")
+
+console.log("student", student)
+student.walk()
+student.takeTest()
