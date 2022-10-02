@@ -1,26 +1,9 @@
-class Account {
-  constructor(
-    public readonly id: number,
-    public owner: string,
-    private _balance: number
-  ) {}
+let person1 = {}
+person1.name = "mohammad"
 
-  get balance () {
-    return this._balance;
-  }
-
-  set balance(value) {
-    this._balance = value
-  }
-
-  deposit(amount: number): void {
-    if (amount < 0) throw new Error("invalid amount");
-    this._balance += amount;
-  }
+class Person {
+  [personProperty: string]: string
 }
 
-let account = new Account(10, "mohammad", 0);
-
-account.deposit(100);
-account.balance = 200
-console.log("balance", account.balance);
+let person2 = new Person()
+person2.name = "Mohammad"
