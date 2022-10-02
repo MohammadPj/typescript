@@ -1,24 +1,14 @@
 "use strict";
-class Account {
-    constructor(id, owner, _balance) {
-        this.id = id;
-        this.owner = owner;
-        this._balance = _balance;
-    }
-    get balance() {
-        return this._balance;
-    }
-    set balance(value) {
-        this._balance = value;
-    }
-    deposit(amount) {
-        if (amount < 0)
-            throw new Error("invalid amount");
-        this._balance += amount;
+class Button {
+    increment() { Button._count++; }
+    static get count() {
+        return Button._count;
     }
 }
-let account = new Account(10, "mohammad", 0);
-account.deposit(100);
-account.balance = 200;
-console.log("balance", account.balance);
+Button._count = 0;
+let btn1 = new Button();
+let btn2 = new Button();
+btn1.increment();
+btn2.increment();
+console.log("count", Button.count);
 //# sourceMappingURL=index.js.map

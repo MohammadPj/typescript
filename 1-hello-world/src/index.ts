@@ -1,9 +1,17 @@
-let person1 = {}
-person1.name = "mohammad"
+class Button {
+  private static _count: number = 0
 
-class Person {
-  [personProperty: string]: string
+  increment() {Button._count++}
+
+  static get count() {
+    return Button._count
+  }
 }
 
-let person2 = new Person()
-person2.name = "Mohammad"
+let btn1 = new Button()
+let btn2 = new Button()
+
+btn1.increment()
+btn2.increment()
+
+console.log("count", Button.count)
