@@ -5,8 +5,12 @@ class Account {
     private _balance: number
   ) {}
 
-  getBalance() {
+  get balance () {
     return this._balance;
+  }
+
+  set balance(value) {
+    this._balance = value
   }
 
   deposit(amount: number): void {
@@ -18,4 +22,5 @@ class Account {
 let account = new Account(10, "mohammad", 0);
 
 account.deposit(100);
-console.log("balance", account.getBalance());
+account.balance = 200
+console.log("balance", account.balance);
