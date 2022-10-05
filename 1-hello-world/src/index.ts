@@ -1,16 +1,21 @@
-class Person {
-  private walk() {
-    console.log("walk")
+// Abstract Classes and Methods
+
+abstract class Shape {
+  protected constructor(public color: string) {
   }
 
-  protected talk() {
-    console.log("talk")
+  abstract render(): void;
+}
+
+
+class Circle extends Shape {
+  constructor(public radius: number, color: string) {
+    super(color);
+  }
+
+  override render(): void {
+    console.log("Rendering a circle");
   }
 }
 
-class Student extends Person {
-  doSomthing() {
-    this.walk()
-    this.talk()
-  }
-}
+let shape = new Shape("red");
