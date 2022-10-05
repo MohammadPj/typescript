@@ -1,21 +1,35 @@
-// Abstract Classes and Methods
-
-abstract class Shape {
-  protected constructor(public color: string) {
-  }
-
-  abstract render(): void;
+interface Calendar {
+  name: string;
+  addEvents(): void;
+  removeEvent(): void;
 }
 
+interface CloudCalendar extends Calendar {
+  sync(): void;
+}
 
-class Circle extends Shape {
-  constructor(public radius: number, color: string) {
-    super(color);
-  }
+class GoogleCalendar implements CloudCalendar {
+  constructor(public name: string) {}
 
-  override render(): void {
-    console.log("Rendering a circle");
+  addEvents(): void {}
+
+  removeEvent(): void {}
+
+  sync(): void {}
+}
+
+let creatCalendar = (calendar: Calendar): void => {
+  console.log("creating ", calendar)
+}
+
+let calendar: Calendar = {
+  name: "google",
+  addEvents() {
+    console.log("add events")
+  },
+  removeEvent() {
+    console.log("remove events")
   }
 }
 
-let shape = new Shape("red");
+creatCalendar(calendar);
