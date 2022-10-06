@@ -1,21 +1,49 @@
-interface Result<T> {
-  data: T | null;
-  error: string | null;
-}
-interface User {
-  username: string;
-}
-interface Product {
-  title: string;
+// Generic Constraints
+
+// ============================================= union types
+
+function echo1<T extends string | number>(value: T): T {
+  return value;
 }
 
-function fetch<T>(url: string): Result<T> {
-  console.log(url);
-  return { data: null, error: null };
+echo1(1);
+echo1(true);
+
+// ============================================= object
+
+function echo2<T extends { name: string }>(value: T): T {
+  return value;
 }
 
-let userResult = fetch<User>("user url");
-let productResult = fetch<Product>("product url");
+echo2({ name: "Mohammad" });
+echo2("Mohammad");
 
-console.log(userResult.data?.username);
-console.log(productResult.data?.title);
+// ============================================= interface
+
+interface IPerson {
+  firstName: string;
+}
+
+interface ICustomer extends IPerson {
+  lastName: string;
+}
+
+function echo3<T extends ICustomer>(value: T): T {
+  return value;
+}
+
+echo3({ firstName: "Mohammad", lastName: "Bay" });
+echo3({ firstName: "Mohammad" });
+
+// ============================================= classes
+
+class Person {
+  constructor(public name: string) {}
+}
+
+function echo4<T extends Person>(value: T): T {
+  return value;
+}
+
+echo4({name: "Mohammad"})
+echo4("Mohammad")
