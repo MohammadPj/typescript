@@ -1,23 +1,23 @@
-interface IProduct {
+//  Type Mapping
+//  typescript utility type
+
+interface Product {
   name: string;
-  price: number;
+  price: number
 }
 
-class Store<T> {
-  protected _objects: T[] = [];
-
-  add(obj: T): void {
-    this._objects.push(obj);
-  }
-  find(property: keyof T, value: unknown): T | undefined {
-    return this._objects.find((obj) => obj[property] === value);
-  }
+type Readonly2<T> = {
+  readonly [K in keyof T]: T[K]
 }
 
-let store = new Store<IProduct>();
+type Optional<T> = {
+  [K in keyof T]?: T[K]
+}
 
-store.add({ name: "Mosh", price: 200 });
+type Nullable<T> = {
+  [K in keyof T]: T[K] | null
+}
 
-store.find("name", "Mosh");
-store.find("price", 200);
-store.find("unknownProperty", "asd");
+let product: Optional<Product> = {
+  name: "Mosh"
+}
