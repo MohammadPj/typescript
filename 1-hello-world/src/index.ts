@@ -1,49 +1,31 @@
-// Generic Constraints
-
-// ============================================= union types
-
-function echo1<T extends string | number>(value: T): T {
-  return value;
+interface IProduct {
+  name: string;
+  price: number
 }
 
-echo1(1);
-echo1(true);
+class Store<T> {
+  protected _objects: T[] = []
 
-// ============================================= object
-
-function echo2<T extends { name: string }>(value: T): T {
-  return value;
+  add(obj: T): void {
+    this._objects.push(obj)
+  }
 }
 
-echo2({ name: "Mohammad" });
-echo2("Mohammad");
-
-// ============================================= interface
-
-interface IPerson {
-  firstName: string;
+//  Pass on the generic type parameter
+class CompressibleStore<T> extends Store<T> {
+  compress() {}
 }
 
-interface ICustomer extends IPerson {
-  lastName: string;
+//  Restrict the generic type parameter
+class SearchableStore<T extends {name: string}> extends CompressibleStore<T> {
+  find(name: string): T | undefined {
+    return this._objects.find(obj => obj.name === name)
+  }
 }
 
-function echo3<T extends ICustomer>(value: T): T {
-  return value;
+//  Fix the generic type parameter
+class ProductStore extends Store<IProduct> {
+  filterByCategory(category: string): IProduct[] {
+    return []
+  }
 }
-
-echo3({ firstName: "Mohammad", lastName: "Bay" });
-echo3({ firstName: "Mohammad" });
-
-// ============================================= classes
-
-class Person {
-  constructor(public name: string) {}
-}
-
-function echo4<T extends Person>(value: T): T {
-  return value;
-}
-
-echo4({name: "Mohammad"})
-echo4("Mohammad")
