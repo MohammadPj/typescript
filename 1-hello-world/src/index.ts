@@ -1,31 +1,23 @@
 interface IProduct {
   name: string;
-  price: number
+  price: number;
 }
 
 class Store<T> {
-  protected _objects: T[] = []
+  protected _objects: T[] = [];
 
   add(obj: T): void {
-    this._objects.push(obj)
+    this._objects.push(obj);
+  }
+  find(property: keyof T, value: unknown): T | undefined {
+    return this._objects.find((obj) => obj[property] === value);
   }
 }
 
-//  Pass on the generic type parameter
-class CompressibleStore<T> extends Store<T> {
-  compress() {}
-}
+let store = new Store<IProduct>();
 
-//  Restrict the generic type parameter
-class SearchableStore<T extends {name: string}> extends CompressibleStore<T> {
-  find(name: string): T | undefined {
-    return this._objects.find(obj => obj.name === name)
-  }
-}
+store.add({ name: "Mosh", price: 200 });
 
-//  Fix the generic type parameter
-class ProductStore extends Store<IProduct> {
-  filterByCategory(category: string): IProduct[] {
-    return []
-  }
-}
+store.find("name", "Mosh");
+store.find("price", 200);
+store.find("unknownProperty", "asd");
