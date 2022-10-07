@@ -1,5 +1,5 @@
 export class Circle {
-  constructor(public radius: number) {
+  constructor(public radius:number) {
   }
 }
 
