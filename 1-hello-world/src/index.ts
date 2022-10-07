@@ -1,23 +1,22 @@
-//  Type Mapping
-//  typescript utility type
-
-interface Product {
-  name: string;
-  price: number
+function Component(constructor: Function) {
+  console.log("component decorator called");
+  constructor.prototype.uniqueId = Date.now();
+  constructor.prototype.insertInDom = () => {
+    console.log("inserting the component in the Dom");
+  };
 }
 
-type Readonly2<T> = {
-  readonly [K in keyof T]: T[K]
+@Component
+class ProfileComponent {}
+
+// کد بالا رو به شکل زیر هم میشه نوشت
+
+class Componentt{
+  insertInDOM() {
+    console.log("insert component in dom")
+  }
 }
 
-type Optional<T> = {
-  [K in keyof T]?: T[K]
-}
+class ProfileComponentt extends Componentt {
 
-type Nullable<T> = {
-  [K in keyof T]: T[K] | null
-}
-
-let product: Optional<Product> = {
-  name: "Mosh"
 }
