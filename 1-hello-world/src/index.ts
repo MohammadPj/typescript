@@ -1,25 +1,18 @@
-type ComponentOptions = {
-  selector: string
+function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
+  const original = descriptor.value as Function;
+  descriptor.value = function (...args: any) {
+    console.log("Before");
+    original.call(this, ...args);
+    console.log("After");
+  };
 }
 
-function Pipe(constructor: Function) {
-  console.log("pipe decorator run first")
-  constructor.prototype.pipe = true
-}
-
-function Component(options: ComponentOptions) {
-  return (constructor: Function) => {
-    console.log("component decorator run after");
-    constructor.prototype.options = options
-    constructor.prototype.uniqueId = Date.now();
-    constructor.prototype.insertInDom = () => {
-      console.log("inserting the component in the Dom");
-    };
+class Person {
+  @Log
+  say(message: string) {
+    console.log("Person says", message);
   }
 }
 
-
-// pipe run first
-@Component({selector: "#id-1"})
-@Pipe
-class ProfileComponent {}
+let person = new Person();
+person.say("Teacher");
