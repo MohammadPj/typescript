@@ -1,4 +1,5 @@
-import * as Shapes from "./shapes"
+import {Square, Circle, Rectangle} from "./shapes"
 
-let circle = new Shapes.Circle(10)
-console.log(circle)
+console.log(Square)
+console.log(Circle)
+console.log(Rectangle)
