@@ -1,5 +1,3 @@
-import {Square, Circle, Rectangle} from "./shapes"
+import {calculateTax} from "./tax";
 
-console.log(Square)
-console.log(Circle)
-console.log(Rectangle)
+calculateTax()
