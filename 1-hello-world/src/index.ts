@@ -1,22 +1,19 @@
-function Component(constructor: Function) {
-  console.log("component decorator called");
-  constructor.prototype.uniqueId = Date.now();
-  constructor.prototype.insertInDom = () => {
-    console.log("inserting the component in the Dom");
-  };
+type ComponentOptions = {
+  selector: string
 }
 
-@Component
-class ProfileComponent {}
-
-// کد بالا رو به شکل زیر هم میشه نوشت
-
-class Componentt{
-  insertInDOM() {
-    console.log("insert component in dom")
+function Component(options: ComponentOptions) {
+  return (constructor: Function) => {
+    console.log("component decorator called");
+    constructor.prototype.options = options
+    constructor.prototype.uniqueId = Date.now();
+    constructor.prototype.insertInDom = () => {
+      console.log("inserting the component in the Dom");
+    };
   }
 }
 
-class ProfileComponentt extends Componentt {
 
-}
+
+@Component({selector: "#id-1"})
+class ProfileComponent {}
