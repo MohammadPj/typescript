@@ -1,3 +1,4 @@
 import {calculateTax} from "./tax";
 
-calculateTax()
+let tax = calculateTax(100)
+console.log(tax)
